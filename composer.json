@@ -1,0 +1,34 @@
+{
+    "name": "seblhaire/autocompleter",
+    "description": "A Laravel library with Javascript JQuery script to add input with auto-completer",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Sébastien L'haire",
+            "email": "sebastien@lhaire.org"
+        }
+    ],
+    "homepage": "https://github.com/seblhaire/autocompleter",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.6",
+        "illuminate/http": "^6.0|^7.0|^8.0",
+        "danielstjules/stringy": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Seblhaire\\Autocompleter\\": "src/"
+        }
+    },
+    "extra": {
+      "laravel": {
+          "providers": [
+              "Seblhaire\\Autocompleter\\AutocompleterServiceProvider"
+          ],
+          "aliases": {
+              "AutocompleterHelper": "Seblhaire\\Autocompleter\\AutocompleterHelper"
+          }
+    }
+  }
+
+}
