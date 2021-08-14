@@ -10,6 +10,11 @@ It uses:
 * a Javascript auto-complete script based on [jQuery](https://jquery.com/) Javascript framework.
 * [Bootstrap](https://getbootstrap.com/) 4 CSS Framework.
 
+
+![Autocompleter](autocompleter1.png)
+
+![Autocompleter with result list](autocompleter2.png)
+
 Demo site available [here](https://sebastien.lhaire.org/autocompleter).
 
 ## Installation
