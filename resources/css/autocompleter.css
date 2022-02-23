@@ -1,0 +1,24 @@
+.sebautocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+
+.sebautocomplete .list-group{
+  position: absolute;
+  z-index: 9999;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocompletehelp{
+  margin-top:-18px;
+}
+.sebautocomplete:hover {
+  cursor:pointer;
+}
+
+.sebautoloadhighlite{
+  font-weight: bolder;
+  color:red;
+}
