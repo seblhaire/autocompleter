@@ -8,7 +8,7 @@ A Laravel library with Javascript JQuery script to add input with auto-completer
 It uses:
 
 * a Javascript auto-complete script based on [jQuery](https://jquery.com/) Javascript framework.
-* [Bootstrap](https://getbootstrap.com/) 4 CSS Framework.
+* [Bootstrap](https://getbootstrap.com/) 4 / 5 CSS Framework.
 
 
 ![Autocompleter](autocompleter1.png)
