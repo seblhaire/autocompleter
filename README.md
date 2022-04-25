@@ -96,10 +96,8 @@ where:
     * `'helpclass'`:  help text class. Default: 'autocompletehelp';
    * `'helptext'`:  help text below input. Text can be string or translation key. Cf [below](#translation_keys).,
    * `'divclass'`: main`<div>`class. Default: "form-group":
-   * `'divinsidestyle'`: secondary  `<div>`class, which includes label, input and result list. Default: "width: 350px";
    *   `'inputclass'` : class of auto-complete `<input>` field. Default: 'form-control';
    *  `'resultdivclass'`: classes of `<div>`which contains results list. Default: 'sebautocomplete';
-    * `'resdivstyle'`:  styles of previous mentioned result `<div>` in order to position list precisely. Array of values. Default: ['width' => '350px', 'top' => '-18px'];
     * `'resultlistclass'`: class(es) of result list `<ul>` element. Default: 'list-group';
   *  `'resultlistclassitem'` : class(es) of list item `<li>`element. Defaut: 'list-group-item';
   * `'highliteclasses'` ; class for `<span>`to highlite search term in list. Default: 'sebautoloadhighlite';

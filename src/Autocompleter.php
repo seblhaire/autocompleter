@@ -23,7 +23,7 @@ class Autocompleter{
   }
 
   public function printInsideDiv(){
-    $str  = '<div style="' . $this->options['divinsidestyle'] . '">' . PHP_EOL;
+    $str  = '<div class="' . $this->options['divinsideclass'] . '">' . PHP_EOL;
     $str .= $this->printLabel() . $this->printInput() . $this->printResultDiv() . '</div>' . PHP_EOL;
     return $str;
   }
@@ -39,17 +39,6 @@ class Autocompleter{
 
   public function printResultDiv(){
     $str  = '<div id="' . $this->inputid . '_res_div"';
-    if (
-      !is_null($this->options['resdivstyle']) &&
-      is_array($this->options['resdivstyle'])  &&
-      count($this->options['resdivstyle']) > 0
-    ){
-      $style = '';
-      foreach($this->options['resdivstyle'] as $key => $value){
-        $style .= (strlen($style) > 0 ? '; ': '') . $key . ': '.  $value;
-      }
-      $str  .= ' style="' . $style . '"';
-    }
     $str  .= ' class="' . $this->options['resultdivclass'] . '">' . PHP_EOL;
     $str  .= '<ul id="' . $this->inputid . '_res_list" class="' . $this->options['resultlistclass'] . '"></ul>' . PHP_EOL;
     $str .= '</div>' . PHP_EOL;
@@ -83,13 +72,6 @@ class Autocompleter{
     $str .= '     id_field:  \'' . $this->options['id_field'] . '\',' . PHP_EOL;
     $str .= '     list_field:  \'' . $this->options['list_field'] . '\',' . PHP_EOL;
     $str .= '     id_included: ' .  ($this->options['id_included'] ? 'true,' : 'false,') . PHP_EOL;
-    if (!is_null($this->options['resdivstyle']) && count($this->options['resdivstyle']) > 0){
-      $substr = '';
-      foreach ($this->options['resdivstyle'] as $key => $val){
-        $substr .= (strlen($substr) > 0 ? ', ' : '') . $key . ' : \'' . $val . '\'';
-      }
-      $str .=  '     resdivstyle: {' . $substr . '},'. PHP_EOL;
-    }
     if (!is_null($this->options['callback'])){
         $str .= '     callback: ' . $this->options['callback'] . ',' . PHP_EOL;
     }

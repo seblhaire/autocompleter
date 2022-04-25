@@ -4,12 +4,9 @@ return [
   'helpclass' => 'autocompletehelp',
   'helptext' => '#autocompleter::messages.autocompleterhelp#',
   'divclass' => "form-group",
-  'divinsidestyle' => 'width: 350px',
+  'divinsideclass' => 'divinsideclass',
   'resultdivclass' => 'sebautocomplete',
-  'resdivstyle' => [
-    'width' => '350px',
-    'top' => '-24px'
-  ],
+  'resdivclass' => 'resdivclass',
   'inputclass' => 'form-control',
   'highliteclasses' => 'sebautoloadhighlite',
   'resultlistclass' => 'list-group',

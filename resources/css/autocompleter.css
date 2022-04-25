@@ -2,6 +2,8 @@
   /*the container must be positioned relative:*/
   position: relative;
   display: inline-block;
+  width: 350px;
+  top: -17px;
 }
 
 .sebautocomplete .list-group{
@@ -21,4 +23,7 @@
 .sebautoloadhighlite{
   font-weight: bolder;
   color:red;
+}
+.divinsideclass {
+  width: 350px
 }
