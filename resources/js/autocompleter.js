@@ -115,7 +115,7 @@ var SebAutocompleter = {
   itemclick: function(e){
     e.preventDefault();
     var self = e.data.self;
-    eval(self.options.callback(jQuery(this).data()));
+    self.options.callback(jQuery(this).data());
     self.resultlist.empty();
     self.input.val('');
     return false;
