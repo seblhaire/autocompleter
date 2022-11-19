@@ -1,4 +1,5 @@
 
+
 # Autocompleter
 
 [By Sébastien L'haire](http://sebastien.lhaire.org)
@@ -178,18 +179,17 @@ You must build a simple method in a controller that will be called to update res
 1. your route has to accept the POST method;
 2. two parameters only are built in the autocompleter object:
    *  'search' contains the current string in input;
-   * 'maxresults'  is an integer for the maximum of results acceptable for the autocompleter
+   * 'maxresults'  is an integer for the maximum of results acceptable for the autocompleter.
+  We provide a request model  AutocompleterRequest to perform form validation.
  3.  the method must return a json object with a single field named 'res' which contains an array of result lines.
  4. result lines are an array which must contain at least the following fields:
    * a field whose key corresponds to the config value `id_field`  (cf. above) (`config('autocompleter.highliteclasses')`);
    * a field whose key corresponds to the config value `list_field`, which contains the text for the autocompleter result list. If `id_included` has value `true` in config, the autocompleter object will add automatically the `id_field` value. In this field you can use the above mentioned function `Utils::highlite`.
 To summarize here is a complete example:     
 ```
-public function search(Request $request){
-  $validated = $request->validate([
-    'search' => 'required|string',
-    'maxresults' => 'required|numeric|min:3'
-  ]);
+use Seblhaire\Autocompleter\AutocompleterRequest;
+...
+public function search(AutocompleterRequest $request){
   $search = $request->input('search');
   $countries = collect(Countries::getList())->filter(function($data) use ($search){ //search in country list
     return (mb_stripos($data['code'], $search) !== false) || (mb_stripos($data['country'], $search) !== false);
