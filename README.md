@@ -107,12 +107,6 @@ where:
     * `'id_included'`: id field (cf previous line) must be added to result. Default: true;
     * `'list_field'` : name of field in result line containing text to display in list. Default: 'listfield';
   * `'encoding'`character encoding of data. Default `'utf8'`;
-  *  `'csrfrefreshroute'`route to refresh csrf in case of security error. Add this route in your project:
-  ```
-  Route::get('/refresh-csrf', function(){
-      return csrf_token();
-  })->name('refreshcsrf');
-  ```
   *  `'maxresults'`: max result number. Default: 6;
    * `'minsearchstr'`: minimum search string length to start autocompletion. Default: 1;
    *  `'callback'` : name of function to be called after a value is selected.
@@ -124,7 +118,6 @@ $ac = AutocompleterHelper::init(
    'Countries',
    route('autocompletesearch'), // route called when typing in input
    [
-    'csrfrefreshroute' => route('refreshcsrf'),
     'callback' => 'output'
  ]);
  ...

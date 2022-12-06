@@ -75,9 +75,6 @@ class Autocompleter{
     if (!is_null($this->options['callback'])){
         $str .= '     callback: ' . $this->options['callback'] . ',' . PHP_EOL;
     }
-    if (isset($this->options['csrfrefreshroute'])){
-      $str .= '     csrfrefreshroute: \'' . $this->options['csrfrefreshroute'] . '\',' . PHP_EOL;
-    }
     $str .= '     csrf: \'' . $this->options['csrf'] . '\'' . PHP_EOL;
     $str .= '  });' . PHP_EOL;
     return $str;

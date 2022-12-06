@@ -23,14 +23,6 @@ var SebAutocompleter = {
       .on('keyup', {self: this}, this.inputkeypress)
       .on('change input submit', function(e){ e.preventDefault(); e.stopPropagation();return false;});
   },
-	refreshToken: function (){
-		var self = this;
-    if (self.options.csrfrefreshroute != null){
-	    jQuery.get(self.options.csrfrefreshroute, function(data){
-	        self.options.csrf = data;
-	    });
-    }
-	},
   inputkeypress: function(e){
     var self = e.data.self;
     if (e.keyCode == 40) { // keydown
@@ -107,8 +99,7 @@ var SebAutocompleter = {
       }
     }).fail(function(jqXHR, textStatus, errorThrown) {
       if (jqXHR.status == 419){
-        self.refreshToken();
-        self.search();
+        location.refresh();
       }
     });
   },

@@ -16,7 +16,6 @@ return [
   'id_included' => true,
   'list_field' => 'listfield',
   'encoding' => 'utf8',
-  'csrfrefreshroute' => null,
   'maxresults' => 6,
   'minsearchstr' => 1,
   'callback' => null
