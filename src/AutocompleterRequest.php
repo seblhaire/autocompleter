@@ -1,17 +1,17 @@
 <?php
+
 namespace Seblhaire\Autocompleter;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AutocompleterRequest extends FormRequest
-{
+class AutocompleterRequest extends FormRequest {
+
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize() {
         return true;
     }
 
@@ -20,11 +20,10 @@ class AutocompleterRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-          'search' => 'required|string',
-          'maxresults' => 'required|numeric|min:3'
+            'search' => 'required|string',
+            'maxresults' => 'required|numeric|min:3'
         ];
     }
 }
