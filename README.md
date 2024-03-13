@@ -1,5 +1,3 @@
-
-
 # Autocompleter
 
 [By Sébastien L'haire](http://sebastien.lhaire.org)
