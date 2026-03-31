@@ -29,17 +29,36 @@ var SebAutocompleter = {
     },
     inputkeypress: function (e) {
         var self = e.data.self;
-        if (e.keyCode == 40) { // keydown
-            if (self.currentElement == self.resultlist.children('li').length) {
-                self.currentElement = 1;
-            } else {
-                self.currentElement++;
+        if (e.which === 38 || e.which === 40 || e.which === 13) {
+            e.preventDefault(); // Empêche le comportement par défaut
+            self.selectValue(e);
+            return;
+        }
+        if (self.input.val().length < self.options.minsearchstr) {
+            self.resultlist.empty();
+            return;
+        }
+        self.search();
+    },
+    selectValue: function(e){
+        var self = e.data.self;
+        e.preventDefault();
+        if (e.which == 13) { // enter
+            if (self.currentElement > 0) {
+                self.resultlist.children('li:nth-child(' + self.currentElement + ')').click();
+                self.input.focus();
             }
-            self.resultlist.children('li').removeClass('active');
-            self.resultlist.children('li:nth-child(' + self.currentElement + ')').addClass(self.options.activeitem)
-        } else if (e.keyCode == 38) {  //key up
-            if (self.currentElement >= 1) {
-                self.currentElement--;
+        } else{
+            if (e.which == 40) { // keydown
+                if (self.currentElement == self.resultlist.children('li').length) {
+                    self.currentElement = 1;
+                } else {
+                    self.currentElement++;
+                }
+            } else {
+                if (self.currentElement >= 1) {
+                    self.currentElement--;
+                }
             }
             if (self.currentElement == 0) {
                 self.resultlist.children('li').removeClass(self.options.activeitem);
@@ -50,18 +69,6 @@ var SebAutocompleter = {
                 self.resultlist.children('li').removeClass(self.options.activeitem);
                 self.resultlist.children('li:nth-child(' + self.currentElement + ')').addClass(self.options.activeitem);
             }
-        } else if (e.keyCode == 13) { // enter
-            e.preventDefault();
-            if (self.currentElement > 0) {
-                self.resultlist.children('li:nth-child(' + self.currentElement + ')').click();
-            }
-            return false;
-        } else {
-            if (self.input.val().length < self.options.minsearchstr) {
-                self.resultlist.empty();
-                return false;
-            }
-            self.search();
         }
     },
     search: function () {
